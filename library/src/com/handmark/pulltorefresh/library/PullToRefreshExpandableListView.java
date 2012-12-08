@@ -22,17 +22,12 @@ import android.os.Build.VERSION_CODES;
 import android.util.AttributeSet;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View;
-import android.widget.BaseExpandableListAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ExpandableListView;
 
 import com.handmark.pulltorefresh.library.internal.EmptyViewMethodAccessor;
 
 public class PullToRefreshExpandableListView extends PullToRefreshAdapterViewBase<ExpandableListView> {
 
-	private ExpandableListView mInternalListView;
-
-	
 	public PullToRefreshExpandableListView(Context context) {
 		super(context);
 	}
@@ -60,7 +55,6 @@ public class PullToRefreshExpandableListView extends PullToRefreshAdapterViewBas
 		}
 
 		// Set it to this so it can be used in ListActivity/ListFragment
-		this.mInternalListView = lv;
 		lv.setId(android.R.id.list);
 		return lv;
 	}
@@ -85,11 +79,6 @@ public class PullToRefreshExpandableListView extends PullToRefreshAdapterViewBas
 			super.setEmptyView(emptyView);
 		}
 	}
-	
-	public ExpandableListView getExpandableListView() {
-		return this.mInternalListView;
-	}
-	
 
 	@TargetApi(9)
 	final class InternalExpandableListViewSDK9 extends InternalExpandableListView {

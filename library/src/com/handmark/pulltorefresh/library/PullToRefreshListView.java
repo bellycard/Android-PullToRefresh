@@ -36,10 +36,7 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 
 	private LoadingLayout mHeaderLoadingView;
 	private LoadingLayout mFooterLoadingView;
-	private ListView mListView;
 	
-
-
 	private FrameLayout mLvFooterLoadingFrame;
 
 	public PullToRefreshListView(Context context) {
@@ -240,7 +237,7 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 	@Override
 	protected final ListView createRefreshableView(Context context, AttributeSet attrs) {
 		ListView lv = createListView(context, attrs);
-		this.mListView = lv;
+
 		// Get Styles from attrs
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.PullToRefresh);
 
@@ -333,9 +330,4 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 		}
 
 	}
-	
-	public ListView getInternalListView() {
-		return this.mListView;
-	}
-
 }
