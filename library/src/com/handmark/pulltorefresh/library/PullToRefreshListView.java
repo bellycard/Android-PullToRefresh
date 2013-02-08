@@ -31,6 +31,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.handmark.pulltorefresh.library.internal.EmptyViewMethodAccessor;
 import com.handmark.pulltorefresh.library.internal.LoadingLayout;
@@ -61,7 +63,20 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 	public ContextMenuInfo getContextMenuInfo() {
 		return ((InternalListView) getRefreshableView()).getContextMenuInfo();
 	}
+	
+	@Override
+	public void setOnTouchListener(OnTouchListener listener) {
+		this.mRefreshableView.setOnTouchListener(listener);
+	}
+	
+	public void setOnItemSelectedListener(OnItemSelectedListener listener) {
+		this.mRefreshableView.setOnItemSelectedListener(listener);
+	}
 
+	public void setOnItemLongClickListener(OnItemLongClickListener listener) {
+		this.mRefreshableView.setOnItemLongClickListener(listener);
+	}
+	
 	@Override
 	public void setLastUpdatedLabel(CharSequence label) {
 		super.setLastUpdatedLabel(label);
